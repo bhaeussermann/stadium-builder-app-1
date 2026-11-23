@@ -1,0 +1,38 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Backend",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build",
+      "program": "${workspaceFolder}/app-backend/MyApp/bin/Debug/net10.0/MyApp.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/app-backend/MyApp",
+      "stopAtEntry": false,
+      "env": {
+        "DOTNET_ENVIRONMENT": "Development"
+      }
+    },
+    {
+      "name": "Frontend",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev -- --inspect",
+      "cwd": "${workspaceFolder}/app-frontend"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Frontend and backend",
+      "configurations": [
+        "Backend",
+        "Frontend"
+      ],
+      "stopAll": false,
+      "presentation": {
+        "order": 1
+      }
+    }
+  ]
+}
